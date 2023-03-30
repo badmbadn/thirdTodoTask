@@ -47,15 +47,7 @@ export default class App extends Component {
     }
     
     deleteItem = (id) => {
-        
-        this.setState(({data}) => {
-            const idx = data.findIndex(el => el.id = id +1)
-            const result = [...data.slice(0,idx),...data.slice(idx + 1)]
-
-            return {
-                data:result
-            }
-        })
+        this.setState(({data}) => ({ data:data.filter((item) => item.id !== id)}))   
     }
     
     onFilterChange = (filter) => {
